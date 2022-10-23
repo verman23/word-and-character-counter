@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Count</title>
+    <style>
+        body{
+            padding: 50px 100px;
+        }
+        h1{
+            padding: 20px;
+            text-align: center;
+            background-color:burlywood;
+            margin: 0px;
+            color: brown;
+        }
+        #terabox{
+            width: 1280px;
+           border-color: aqua;
+           padding: 10px;
+           margin: 0px;
+           font-size: 15px;
+        }
+        p{
+            text-align: center;
+            font-weight: bold;
+            background-color: aqua;
+            font-size: 25px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Word and Character Counter</h1>
+    <textarea  id="terabox" cols="30" rows="10"></textarea>
+     <p>
+        <span id="word">0 </span>Word and 
+        <span id="char">0 </span>Character
+    </p>
+    <script>
+        let terabox=document.getElementById("terabox");
+        terabox.addEventListener('input',function(){
+          var text=this.value;
+          var char=text.length;
+          document.getElementById("char").innerHTML=char;
+
+          text=text.trim();
+          let word=text.split(" ");
+          let cleanlist=word.filter(function(elm){
+            return elm !="";
+          });
+          document.getElementById("word").innerHTML=cleanlist.length;
+        });
+    </script>
+</body>
+</html>
